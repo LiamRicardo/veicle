@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block menu %}
+
+{% endblock %}
+
+{% block conte %}
+<section id="content">        
+    <main id="main">
+        <!-- veiculos -->
+        <section id="Veiculos">
+            <h1>Veículos Disponíveis</h1>
+            <div class="listaVeiculos">
+                {% for veiculo in veiculos %}
+                <div class="blocosVeiculos">
+                    <img src="/static/uploads/{{ veiculo.Img }}" alt="Imagem do veículo">
+                    <div class="legenda">
+                        <span class="nome">{{ veiculo.Marca }}</span>
+                        <span class="preco">{{ veiculo.Valor}}</span>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        <!-- veiculos -->
+    </main>
+</section>
+{% endblock %}
