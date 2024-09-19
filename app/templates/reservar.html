@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block menu %}
+
+
+{% endblock %}
+
+{% block conte %}
+<h1>Reservar Veículo</h1>
+<form action="/confirmar_reserva/{{ veiculo.id }}" method="POST">
+    <label for="username">Nombre del Usuario:</label>
+    <input type="text" id="username" name="username" required><br>
+
+    <label for="start_date">Día de Comienzo:</label>
+    <input type="date" id="start_date" name="start_date" required><br>
+
+    <label for="end_date">Día de Fin:</label>
+    <input type="date" id="end_date" name="end_date" required><br>
+
+    <input type="submit" value="Confirmar Reserva">
+</form>
+{% endblock %}

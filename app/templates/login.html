@@ -19,6 +19,13 @@
             <section id="secaoFormulario"> 
                 <form method="post" action="/login" enctype="multipart/form-data">
                     <div id="formulario">
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                <h1 class="{{ category }}" style="color: red;">{{ message }}</h1>
+                            {% endfor %}
+                        {% endif %}
+                        {% endwith %}
                         <div class="blocoFormulario">
                             <label>Nombre de Usuario</label>
                             <input type="text" name="user" placeholder="Usuario" class="inputBase" required>

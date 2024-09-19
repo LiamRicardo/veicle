@@ -34,3 +34,9 @@ class Veicles(db.Model):
     
     def __repr__(self):
         return f'<Veicles {self.Marca}>'
+
+
+
+
+
+

@@ -16,8 +16,12 @@
                     <img src="/static/uploads/{{ veiculo.Img }}" alt="Imagem do veículo">
                     <div class="legenda">
                         <span class="nome">{{ veiculo.Marca }}</span>
-                        <span class="preco">{{ veiculo.Valor}}</span>
+                        <span class="preco">{{ veiculo.Valor }}</span>
                     </div>
+                    <!-- Botón para reservar -->
+                    <form action="/reservar/{{ veiculo.id }}" method="get">
+                        <input type="submit" value="Reservar" class="btn-reservar">
+                    </form>
                 </div>
                 {% endfor %}
             </div>
@@ -26,3 +30,4 @@
     </main>
 </section>
 {% endblock %}
+
