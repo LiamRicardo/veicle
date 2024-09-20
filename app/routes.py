@@ -16,10 +16,46 @@ def cad():
 def inicial():
     return render_template('index.html')
 
+
+
+
+
+
+
+
+
+
+
 @main.route('/veiculos')
 def veiculos():
     veiculos_list = Veicles.query.all()
     return render_template('veiculos.html', veiculos=veiculos_list)
+
+
+
+
+@main.route('/eliminar/<int:id>', methods=['POST'])
+def eliminar_veiculo(id):
+    if 'user_id' not in session or session['username'] != 'admin':
+        flash('No tienes permisos para realizar esta acción', 'danger')
+        return redirect(url_for('main.veiculos'))
+
+    veiculo = Veicles.query.get_or_404(id)
+    db.session.delete(veiculo)
+    db.session.commit()
+
+    flash('Vehículo eliminado correctamente', 'success')
+    return redirect(url_for('main.veiculos'))
+
+
+
+
+
+
+
+
+
+
 
 @main.route('/formularios', methods=['POST', 'GET'])
 def formu():
@@ -81,9 +117,11 @@ def login():
         if usuario and usuario.Contraseña == sena:
             session['user_id'] = usuario.id
             session['username'] = usuario.Usuario
+            
             flash('Inicio de sesión exitoso', 'success')
             return redirect(url_for('main.inicial'))
         else:
             flash('Nombre de usuario o contraseña incorrectos', 'danger')
     
     return render_template('login.html')
+

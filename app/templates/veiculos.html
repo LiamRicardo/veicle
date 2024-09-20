@@ -22,6 +22,11 @@
                     <form action="/reservar/{{ veiculo.id }}" method="get">
                         <input type="submit" value="Reservar" class="btn-reservar">
                     </form>
+                    {% if session['username'] == 'admin' %}
+                    <form action="/eliminar/{{ veiculo.id }}" method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este vehículo?');">
+                        <input type="submit" value="Eliminar" class="btn-eliminar">
+                    </form>
+                    {% endif %}
                 </div>
                 {% endfor %}
             </div>
