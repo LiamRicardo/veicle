@@ -19,9 +19,9 @@
         <tbody>
             {% for reserva in reservas %}
                 <tr>
-                    <td>{{ reserva.veiculo.Marca }}</td>
-                    <td>{{ reserva.fecha_inicio }}</td>
-                    <td>{{ reserva.fecha_fin }}</td>
+                    <td>{{ reserva.Veicles.Marca }}</td>
+                    <td>{{ reserva.inicio }}</td>
+                    <td>{{ reserva.fin }}</td>
                     <td>{{ reserva.estado }}</td>
                 </tr>
             {% endfor %}

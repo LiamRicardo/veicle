@@ -40,3 +40,9 @@ class Veicles(db.Model):
 
 
 
+class reserva(db.Model):
+    __tablename__ = 'reserva'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    inicio = db.Column(db.Date, nullable=False)
+    fin = db.Column(db.Date, nullable=False)
